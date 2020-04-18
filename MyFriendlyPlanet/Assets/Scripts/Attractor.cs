@@ -43,7 +43,7 @@ public class Attractor : MonoBehaviour
         float dist = dir.magnitude * 150.24f;
 
         float forceMag = (mass * rbToAttract.mass) / Mathf.Pow(dist, 2);
-        Vector2 force = dir.normalized * forceMag * 7;
+        Vector2 force = dir.normalized * forceMag * 20;
         rbToAttract.AddForce(force);
     }
 }
