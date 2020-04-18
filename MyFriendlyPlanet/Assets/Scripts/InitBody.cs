@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class InitBody : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    public GameObject obj;
 
 
     void Awake()
     {
-        rb.velocity = new Vector2(Random.Range(-20f,20f), Random.Range(-20f,20f));
+        float randomScale = Random.Range(0.2f, 0.5f);
+        obj.transform.localScale = new Vector3(randomScale, randomScale, 1);
+        obj.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-20f,20f), Random.Range(-20f,20f));
     }
 
     
