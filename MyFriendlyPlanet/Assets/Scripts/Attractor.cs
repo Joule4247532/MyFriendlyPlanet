@@ -25,7 +25,7 @@ public class Attractor : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                mass = rb.mass * 50;
+                mass = rb.mass * 10;
             }
             else
             {
@@ -40,10 +40,10 @@ public class Attractor : MonoBehaviour
         Rigidbody2D rbToAttract = objToAttract.rb;
 
         Vector2 dir = rb.position - rbToAttract.position;
-        float dist = dir.magnitude * 0.1f;
+        float dist = dir.magnitude * 150.24f;
 
         float forceMag = (mass * rbToAttract.mass) / Mathf.Pow(dist, 2);
-        Vector2 force = dir.normalized * forceMag;
+        Vector2 force = dir.normalized * forceMag * 7;
         rbToAttract.AddForce(force);
     }
 }
