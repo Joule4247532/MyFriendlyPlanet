@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     public float spawnRate;
     private float cooldown;
     public bool objDestroid;
-    
+    public bool gameOver;
+
 
     //Init
     private void Start()

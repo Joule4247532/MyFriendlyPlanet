@@ -6,6 +6,7 @@ public class ToggleType : MonoBehaviour
 {
     public GameObject sun;
     public GameObject blackHole;
+    public bool activeBH = false;
 
     private void FixedUpdate()
     {
@@ -13,11 +14,13 @@ public class ToggleType : MonoBehaviour
         {
             sun.SetActive(false);
             blackHole.SetActive(true);
+            activeBH = true;
         }
         else
         {
             sun.SetActive(true);
             blackHole.SetActive(false);
+            activeBH = false;
         }
     }
 }

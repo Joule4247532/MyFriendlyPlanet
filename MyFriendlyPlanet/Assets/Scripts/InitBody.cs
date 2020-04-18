@@ -24,4 +24,35 @@ public class InitBody : MonoBehaviour
             Destroy(obj);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Player")
+        {
+            if (collision.GetComponent<ToggleType>().activeBH)
+            {
+                FindObjectOfType<GameManager>().objDestroid = true;
+                Destroy(obj);
+                //Debug.Log("Eaten");
+            }
+            else
+            {
+                FindObjectOfType<GameManager>().gameOver = true;
+                Destroy(obj);
+                //Debug.Log("Sun destroid");
+            }
+        }
+        else if (collision.name == "Planet")
+        {
+            FindObjectOfType<GameManager>().gameOver = true;
+            Destroy(obj);
+            //Debug.Log("Planet destroid");
+        }
+        else
+        {
+            FindObjectOfType<GameManager>().objDestroid = true;
+            Destroy(obj);
+            //Debug.Log("Self");
+        }
+    }
 }
