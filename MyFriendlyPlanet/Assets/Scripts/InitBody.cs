@@ -41,6 +41,7 @@ public class InitBody : MonoBehaviour
             else
             {
                 FindObjectOfType<GameManager>().gameOver = true;
+                FindObjectOfType<GameManager>().causeOfGG = "The sun has\ngone dark";
                 Destroy(collision.gameObject);
                 Destroy(obj);
                 //Debug.Log("Sun destroid");
@@ -49,6 +50,7 @@ public class InitBody : MonoBehaviour
         else if (collision.name == "Planet")
         {
             FindObjectOfType<GameManager>().gameOver = true;
+            FindObjectOfType<GameManager>().causeOfGG = "Breaking news :\nAsteroid impact!!!";
             Destroy(collision.gameObject);
             Destroy(obj);
             //Debug.Log("Planet destroid");

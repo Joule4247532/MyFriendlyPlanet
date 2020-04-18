@@ -32,6 +32,14 @@ public class ToggleType : MonoBehaviour
         if (collision.name == "Planet")
         {
             FindObjectOfType<GameManager>().gameOver = true;
+            if (activeBH)
+            {
+                FindObjectOfType<GameManager>().causeOfGG = "A black hole has\neaten the planet";
+            }
+            else
+            {
+                FindObjectOfType<GameManager>().causeOfGG = "The sun is a\ntraitor!";
+            }
             Destroy(collision.gameObject);
         }
     }

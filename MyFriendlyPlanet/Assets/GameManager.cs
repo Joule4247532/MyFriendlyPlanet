@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private float cooldown;
     public bool objDestroid;
     public bool gameOver;
+    private bool updated = false;
+    public string causeOfGG = "Null";
 
 
     //Init
@@ -45,19 +47,26 @@ public class GameManager : MonoBehaviour
     {
         if (gameOver)
         {
-            FindObjectOfType<Camera>().gameObject.GetComponent<FollowPlayer>().enabled = false;
             gameOverUI.gameObject.SetActive(true);
-            timeScore.gameObject.SetActive(false);
-        }
+            timeScore.fontSize = 50;
+            timeScore.fontStyle = FontStyle.Bold;
+            timeScore.alignment = TextAnchor.UpperCenter;
+            if (!updated)
+                timeScore.text = timeScore.text + "\n \n \n \n \n \n \n" + causeOfGG;
+                updated = true;
 
-        timeScore.text = "Time Alive : " + time.ToString("0");
+        }
+        else
+        {
+            timeScore.text = " Time Alive : " + time.ToString("0");
+        }
     }
 
     private void GameOver()
     {
         if (gameOver)
         {
-
+            FindObjectOfType<Camera>().gameObject.GetComponent<FollowPlayer>().enabled = false;
         }
     }
 
@@ -118,6 +127,7 @@ public class GameManager : MonoBehaviour
             if ((Player.transform.position - Planet.transform.position).magnitude > 200f)
             {
                 gameOver = true;
+                causeOfGG = "The planet\ndrifted away";
                 Destroy(Planet);
             }
         }
