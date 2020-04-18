@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject Planet;
     public GameObject Asteroid;
+    public Canvas UI;
 
 
     //Variables
@@ -33,7 +34,16 @@ public class GameManager : MonoBehaviour
 
         Spawner();
         CheckObj();
+        GameOver();
+        
+    }
 
+    private void GameOver()
+    {
+        if (gameOver)
+        {
+
+        }
     }
 
     private void CheckObj()
