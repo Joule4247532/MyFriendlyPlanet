@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -78,5 +79,17 @@ public class GameManager : MonoBehaviour
         rdVal = Random.value - 0.5f;
         float spawnY = Random.Range(55f, 65f) * (rdVal / Mathf.Abs(rdVal)) + Player.transform.position.y;
         return new Vector3(spawnX,spawnY, 0);
+    }
+
+    public void LoadLevel(bool loadMenu)
+    {
+        if (loadMenu)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }

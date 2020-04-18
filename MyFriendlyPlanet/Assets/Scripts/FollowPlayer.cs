@@ -2,35 +2,28 @@
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player;
-    public float smoothSpeed = 15f;
-    public Vector3 deltaPosition;
-    public float lookUp = 2f;
-    public float Y = 0.5f;
-    private float amount = 0.0f;
+    public Transform Player;
+    public Camera cam;
+    public float smoothSpeed = 0.3f;
+    private float zoom = 20f;
+    private float step = 2f;
 
-    // Update is called once per frame
-    void FixedUpdate ()
+    private void FixedUpdate()
     {
-        Vector3 playerV = new Vector3(player.position.x, player.position.y + lookUp, player.position.z);
-        Vector3 desiredPos = player.position + deltaPosition;
-        Vector3 smoothedPos = Vector3.Lerp(transform.position, desiredPos, smoothSpeed * Time.deltaTime);
-        smoothedPos = new Vector3(smoothedPos.x, desiredPos.y, desiredPos.z);
-        transform.position = smoothedPos;
-        transform.Translate(0, amount, amount);
-
-        transform.LookAt(playerV);
+        transform.position = Player.position + new Vector3(0,0,-1);
     }
 
     void Update()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && amount <= 1)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0 && zoom <= 30f)
         {
-            amount += Y;
+            zoom += step;
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0 && amount >= -2)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && zoom >= 10f)
         {
-            amount -= Y;
+            zoom -= step;
         }
+
+        cam.orthographicSize = zoom;
     }
 }
