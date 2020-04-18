@@ -23,4 +23,13 @@ public class ToggleType : MonoBehaviour
             activeBH = false;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.name == "Planet")
+        {
+            FindObjectOfType<GameManager>().gameOver = true;
+            Destroy(collision.gameObject);
+        }
+    }
 }

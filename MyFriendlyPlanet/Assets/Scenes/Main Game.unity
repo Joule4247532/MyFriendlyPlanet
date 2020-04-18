@@ -162,6 +162,7 @@ MonoBehaviour:
     type: 3}
   spawnRate: 3
   objDestroid: 0
+  gameOver: 0
 --- !u!4 &941949971
 Transform:
   m_ObjectHideFlags: 0
@@ -336,6 +337,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624262780354489309, guid: 4d722bb9c26810443aa43a3c3b6bd14b,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6624262780354489310, guid: 4d722bb9c26810443aa43a3c3b6bd14b,
         type: 3}

@@ -38,6 +38,7 @@ public class InitBody : MonoBehaviour
             else
             {
                 FindObjectOfType<GameManager>().gameOver = true;
+                Destroy(collision.gameObject);
                 Destroy(obj);
                 //Debug.Log("Sun destroid");
             }
@@ -45,6 +46,7 @@ public class InitBody : MonoBehaviour
         else if (collision.name == "Planet")
         {
             FindObjectOfType<GameManager>().gameOver = true;
+            Destroy(collision.gameObject);
             Destroy(obj);
             //Debug.Log("Planet destroid");
         }
