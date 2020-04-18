@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,7 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject Planet;
     public GameObject Asteroid;
-    public Canvas UI;
+    public GameObject gameOverUI;
+    public Text timeScore;
 
 
     //Variables
@@ -35,8 +35,22 @@ public class GameManager : MonoBehaviour
 
         Spawner();
         CheckObj();
+        CheckPlanet();
         GameOver();
+        UpdateUI();
         
+    }
+
+    private void UpdateUI()
+    {
+        if (gameOver)
+        {
+            FindObjectOfType<Camera>().gameObject.GetComponent<FollowPlayer>().enabled = false;
+            gameOverUI.gameObject.SetActive(true);
+            timeScore.gameObject.SetActive(false);
+        }
+
+        timeScore.text = "Time Alive : " + time.ToString("0");
     }
 
     private void GameOver()
@@ -58,11 +72,14 @@ public class GameManager : MonoBehaviour
 
     private void Spawner()
     {
-        if (time % spawnRate < 0.1f && cooldown <= 0f)
+        if (!gameOver)
         {
-            SpawnAsteroid();
+            if (time % spawnRate < 0.1f && cooldown <= 0f)
+            {
+                SpawnAsteroid();
 
-            cooldown = 0.2f;
+                cooldown = 0.2f;
+            }
         }
     }
 
@@ -83,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(bool loadMenu)
     {
+        Debug.Log("Load");
         if (loadMenu)
         {
             SceneManager.LoadScene(0);
@@ -90,6 +108,18 @@ public class GameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene(1);
+        }
+    }
+
+    void CheckPlanet()
+    {
+        if (!gameOver)
+        {
+            if ((Player.transform.position - Planet.transform.position).magnitude > 200f)
+            {
+                gameOver = true;
+                Destroy(Planet);
+            }
         }
     }
 }

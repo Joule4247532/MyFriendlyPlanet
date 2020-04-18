@@ -18,10 +18,13 @@ public class InitBody : MonoBehaviour
 
     private void Update()
     {
-        if (Mathf.Abs((player.transform.position - obj.transform.position).magnitude) > 200)
+        if (!FindObjectOfType<GameManager>().gameOver)
         {
-            FindObjectOfType<GameManager>().objDestroid = true;
-            Destroy(obj);
+            if (Mathf.Abs((player.transform.position - obj.transform.position).magnitude) > 200)
+            {
+                FindObjectOfType<GameManager>().objDestroid = true;
+                Destroy(obj);
+            }
         }
     }
 

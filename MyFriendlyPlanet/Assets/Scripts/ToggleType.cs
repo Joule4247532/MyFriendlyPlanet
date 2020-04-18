@@ -10,17 +10,20 @@ public class ToggleType : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (!FindObjectOfType<GameManager>().gameOver)
         {
-            sun.SetActive(false);
-            blackHole.SetActive(true);
-            activeBH = true;
-        }
-        else
-        {
-            sun.SetActive(true);
-            blackHole.SetActive(false);
-            activeBH = false;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                sun.SetActive(false);
+                blackHole.SetActive(true);
+                activeBH = true;
+            }
+            else
+            {
+                sun.SetActive(true);
+                blackHole.SetActive(false);
+                activeBH = false;
+            }
         }
     }
 

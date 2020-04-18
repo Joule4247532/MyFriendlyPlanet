@@ -26,6 +26,7 @@ public class PlayerMouvement : MonoBehaviour
         force = new Vector2(moveH, moveV);
         force = force + (-terminalVel * rb.velocity);
         force = force * rb.mass;
-        rb.AddForce(force);
+        if (!FindObjectOfType<GameManager>().gameOver)
+            rb.AddForce(force);
     }
 }
