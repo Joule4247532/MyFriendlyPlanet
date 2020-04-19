@@ -10,7 +10,9 @@ public class FollowPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Player.position + new Vector3(0,0,-1);
+        Vector3 target = Player.position + new Vector3(0,0,-1);
+        Vector3 nextPos = Vector3.Lerp(transform.position, target, smoothSpeed);
+        transform.position = nextPos;
     }
 
     void Update()
