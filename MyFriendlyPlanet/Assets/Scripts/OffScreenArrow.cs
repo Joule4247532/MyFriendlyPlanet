@@ -14,6 +14,9 @@ public class OffScreenArrow : MonoBehaviour
 
     private void Update()
     {
+        if (FindObjectOfType<GameManager>().gameOver)
+            return;
+        
         Vector3 dir = (Planet.position - (Camera.main.transform.position - new Vector3(0, 0, Camera.main.transform.position.z))).normalized;
         if (dir.x >= 0)
         {

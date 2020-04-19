@@ -20,12 +20,14 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
     private bool updated = false;
     public string causeOfGG = "Null";
+    public int levelLoad = -1;
 
 
     //Init
     private void Start()
     {
         objDestroid = false;
+        levelLoad = -1;
     }
 
 
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
         CheckObj();
         CheckPlanet();
         GameOver();
+        LoadLevel();
         UpdateUI();
         
     }
@@ -107,17 +110,17 @@ public class GameManager : MonoBehaviour
         return new Vector3(spawnX,spawnY, 0);
     }
 
-    public void LoadLevel(bool loadMenu)
+    private void LoadLevel()
     {
+        if (levelLoad == -1)
+            return;
         Debug.Log("Load");
-        if (loadMenu)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else
-        {
-            SceneManager.LoadScene(1);
-        }
+        SceneManager.LoadScene(levelLoad);
+    }
+
+    public void SetLevel(int lv)
+    {
+        levelLoad = lv;
     }
 
     void CheckPlanet()
