@@ -34,14 +34,24 @@ public class GameManager : MonoBehaviour
     //Runtime
     private void Update()
     {
-        time = Time.timeSinceLevelLoad;
-        cooldown = cooldown - Time.deltaTime;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            time = Time.timeSinceLevelLoad;
+            cooldown = cooldown - Time.deltaTime;
 
-        Spawner();
-        CheckObj();
-        CheckPlanet();
-        GameOver();
-        UpdateUI();
+            Spawner();
+            CheckObj();
+            CheckPlanet();
+            GameOver();
+            UpdateUI();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (Input.GetKey(KeyCode.Return))
+            {
+                SceneManager.LoadScene(1);
+            }
+        }
         
     }
 
