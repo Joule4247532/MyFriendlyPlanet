@@ -5,7 +5,7 @@ public class FollowPlayer : MonoBehaviour
     public Transform Player;
     public Camera cam;
     public float smoothSpeed = 0.3f;
-    private float zoom = 20f;
+    public float zoom = 20f;
     private float step = 2f;
 
     private void FixedUpdate()
