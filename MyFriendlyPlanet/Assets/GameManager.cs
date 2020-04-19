@@ -34,15 +34,24 @@ public class GameManager : MonoBehaviour
     //Runtime
     private void Update()
     {
-        time = Time.timeSinceLevelLoad;
-        cooldown = cooldown - Time.deltaTime;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            time = Time.timeSinceLevelLoad;
+            cooldown = cooldown - Time.deltaTime;
 
-        Spawner();
-        CheckObj();
-        CheckPlanet();
-        GameOver();
-        LoadLevel();
-        UpdateUI();
+            Spawner();
+            CheckObj();
+            CheckPlanet();
+            GameOver();
+            UpdateUI();
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if (Input.GetKey(KeyCode.Return))
+            {
+                SceneManager.LoadScene(1);
+            }
+        }
         
     }
 
@@ -57,6 +66,15 @@ public class GameManager : MonoBehaviour
             if (!updated)
                 timeScore.text = timeScore.text + "\n \n \n \n \n \n \n" + causeOfGG;
                 updated = true;
+
+            if (Input.GetKey("r"))
+            {
+                SceneManager.LoadScene(1);
+            }
+            else if (Input.GetKey("e"))
+            {
+                SceneManager.LoadScene(0);
+            }
 
         }
         else
@@ -118,10 +136,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelLoad);
     }
 
-    public void SetLevel(int lv)
-    {
-        levelLoad = lv;
-    }
 
     void CheckPlanet()
     {
