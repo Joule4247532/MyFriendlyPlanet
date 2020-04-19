@@ -41,7 +41,6 @@ public class GameManager : MonoBehaviour
         CheckObj();
         CheckPlanet();
         GameOver();
-        LoadLevel();
         UpdateUI();
         
     }
@@ -57,6 +56,15 @@ public class GameManager : MonoBehaviour
             if (!updated)
                 timeScore.text = timeScore.text + "\n \n \n \n \n \n \n" + causeOfGG;
                 updated = true;
+
+            if (Input.GetKey("r"))
+            {
+                SceneManager.LoadScene(1);
+            }
+            else if (Input.GetKey("e"))
+            {
+                SceneManager.LoadScene(0);
+            }
 
         }
         else
@@ -118,10 +126,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(levelLoad);
     }
 
-    public void SetLevel(int lv)
-    {
-        levelLoad = lv;
-    }
 
     void CheckPlanet()
     {
