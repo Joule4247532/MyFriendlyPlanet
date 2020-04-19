@@ -45,21 +45,6 @@ public class OffScreenArrow : MonoBehaviour
         if (isOffScreen)
         {
             pointer.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            if (Camera.main.WorldToScreenPoint(Planet.position).x <= 0)
-                CappedPos.x = 0f;
-
-            if (Camera.main.WorldToScreenPoint(Planet.position).x >= Screen.width)
-                CappedPos.x = Screen.width;
-
-            if (Camera.main.WorldToScreenPoint(Planet.position).y <= 0)
-                CappedPos.y = 0f;
-
-            if (Camera.main.WorldToScreenPoint(Planet.position).y >= Screen.height)
-                CappedPos.y = Screen.height;
-
-            CappedPos.z = 0;
-            //Debug.Log(Planet.position);
-            //Vector3 realPos = Camera.main.ScreenToWorldPoint(CappedPos);
             pointer.position = ReturnPos();
         }
         else
