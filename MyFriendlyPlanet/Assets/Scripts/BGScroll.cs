@@ -5,9 +5,13 @@ using UnityEngine;
 public class BGScroll : MonoBehaviour
 {
     public Transform player;
+    
 
     private void Update()
     {
+        if (FindObjectOfType<GameManager>().gameOver)
+            return;
+
         if ((player.position - this.transform.position).x > 57.6 || (player.position - this.transform.position).x < -57.6)
         {
             float deltaX = player.position.x - this.transform.position.x;

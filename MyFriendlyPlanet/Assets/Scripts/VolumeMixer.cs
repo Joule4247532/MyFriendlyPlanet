@@ -13,6 +13,7 @@ public class VolumeMixer : MonoBehaviour
         if (Input.GetButtonDown("Tab"))
         {
             ToggleTab();
+            FindObjectOfType<AudioManager>().Play("Popup");
         }
     }
 

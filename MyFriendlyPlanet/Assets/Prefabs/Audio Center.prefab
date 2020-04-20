@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7549482738239047643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7549482738239047640}
+  - component: {fileID: 7549482738239047641}
+  m_Layer: 0
+  m_Name: Audio Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7549482738239047640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549482738239047643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7549482738239047641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7549482738239047643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b7b3635a3f795458f3c3b1c8187704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Theme
+    clip: {fileID: 8300000, guid: 6da20409ab600294a81a1e1543e56e7c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    output: {fileID: -5667248094866417726, guid: cf4b5209067ee0840b4d0eeeb219d7f9,
+      type: 2}
+    source: {fileID: 0}
+  - name: BH
+    clip: {fileID: 8300000, guid: 1f9904b4c8dd0554ca1b035d1d8cf967, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    output: {fileID: 4954511003481277772, guid: cf4b5209067ee0840b4d0eeeb219d7f9,
+      type: 2}
+    source: {fileID: 0}
+  - name: Click
+    clip: {fileID: 8300000, guid: d8ca43e198b21a1419910bacc277b301, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    output: {fileID: 4954511003481277772, guid: cf4b5209067ee0840b4d0eeeb219d7f9,
+      type: 2}
+    source: {fileID: 0}
+  - name: Meteor
+    clip: {fileID: 8300000, guid: 46e564abff0dff7498ee5b0daae14575, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    output: {fileID: 4954511003481277772, guid: cf4b5209067ee0840b4d0eeeb219d7f9,
+      type: 2}
+    source: {fileID: 0}
+  - name: Away
+    clip: {fileID: 8300000, guid: 726aa97451911ac47b18432e235aebc2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    output: {fileID: 4954511003481277772, guid: cf4b5209067ee0840b4d0eeeb219d7f9,
+      type: 2}
+    source: {fileID: 0}
+  - name: Popup
+    clip: {fileID: 8300000, guid: 8c59711c9e0118a4a8297edf501f5d89, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    output: {fileID: 4954511003481277772, guid: cf4b5209067ee0840b4d0eeeb219d7f9,
+      type: 2}
+    source: {fileID: 0}
+  - name: Burn
+    clip: {fileID: 8300000, guid: 05bc6701bd2166842b3388765e73e8a8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    output: {fileID: 4954511003481277772, guid: cf4b5209067ee0840b4d0eeeb219d7f9,
+      type: 2}
+    source: {fileID: 0}

@@ -2924,6 +2924,16 @@ PrefabInstance:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 806856173}
+    - target: {fileID: 4362889522982478454, guid: aa436bcb2e850eb4b861f84ea46b06e7,
+        type: 3}
+      propertyPath: debugMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362889522982478454, guid: aa436bcb2e850eb4b861f84ea46b06e7,
+        type: 3}
+      propertyPath: Scroller
+      value: 
+      objectReference: {fileID: 1725080856}
     - target: {fileID: 4362889522982478455, guid: aa436bcb2e850eb4b861f84ea46b06e7,
         type: 3}
       propertyPath: m_LocalPosition.x

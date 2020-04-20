@@ -34,12 +34,14 @@ public class InitBody : MonoBehaviour
         {
             if (collision.GetComponent<ToggleType>().activeBH)
             {
+                FindObjectOfType<AudioManager>().Play("BH");
                 FindObjectOfType<GameManager>().objDestroid = true;
                 Destroy(obj);
                 //Debug.Log("Eaten");
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("Burn");
                 FindObjectOfType<GameManager>().gameOver = true;
                 FindObjectOfType<GameManager>().causeOfGG = "The sun has\ngone dark";
                 Destroy(collision.gameObject);
@@ -49,6 +51,7 @@ public class InitBody : MonoBehaviour
         }
         else if (collision.name == "Planet")
         {
+            FindObjectOfType<AudioManager>().Play("Meteor");
             FindObjectOfType<GameManager>().gameOver = true;
             FindObjectOfType<GameManager>().causeOfGG = "Breaking news :\nAsteroid impact!!!";
             Destroy(collision.gameObject);

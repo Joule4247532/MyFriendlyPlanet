@@ -31,13 +31,16 @@ public class ToggleType : MonoBehaviour
     {
         if (collision.name == "Planet")
         {
+            
             FindObjectOfType<GameManager>().gameOver = true;
             if (activeBH)
             {
+                FindObjectOfType<AudioManager>().Play("BH");
                 FindObjectOfType<GameManager>().causeOfGG = "A black hole has\neaten the planet";
             }
             else
             {
+                FindObjectOfType<AudioManager>().Play("Burn");
                 FindObjectOfType<GameManager>().causeOfGG = "The sun is a\ntraitor!";
             }
             Destroy(collision.gameObject);

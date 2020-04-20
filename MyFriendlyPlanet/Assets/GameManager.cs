@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject Asteroid;
     public GameObject gameOverUI;
     public Text timeScore;
+    public GameObject Scroller;
 
 
     //Variables
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Return))
             {
+                FindObjectOfType<AudioManager>().Play("Click");
                 SceneManager.LoadScene(1);
             }
         }
@@ -67,6 +69,7 @@ public class GameManager : MonoBehaviour
         if (gameOver)
         {
             gameOverUI.gameObject.SetActive(true);
+            Scroller.GetComponent<BGScroll>().enabled = false;
             timeScore.fontSize = 50;
             timeScore.fontStyle = FontStyle.Bold;
             timeScore.alignment = TextAnchor.UpperCenter;
@@ -76,10 +79,12 @@ public class GameManager : MonoBehaviour
 
             if (Input.GetKey("r"))
             {
+                FindObjectOfType<AudioManager>().Play("Click");
                 SceneManager.LoadScene(1);
             }
             else if (Input.GetKey("e"))
             {
+                FindObjectOfType<AudioManager>().Play("Click");
                 SceneManager.LoadScene(0);
             }
 
@@ -139,6 +144,7 @@ public class GameManager : MonoBehaviour
     {
         if (levelLoad == -1)
             return;
+        FindObjectOfType<AudioManager>().Play("Click");
         Debug.Log("Load");
         SceneManager.LoadScene(levelLoad);
     }
@@ -150,6 +156,7 @@ public class GameManager : MonoBehaviour
         {
             if ((Player.transform.position - Planet.transform.position).magnitude > 200f)
             {
+                FindObjectOfType<AudioManager>().Play("Away");
                 gameOver = true;
                 causeOfGG = "The planet\ndrifted away";
                 Destroy(Planet);
