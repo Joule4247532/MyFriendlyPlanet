@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     private bool updated = false;
     public string causeOfGG = "Null";
     public int levelLoad = -1;
+    public bool debugMode = true;
 
 
     //Init
@@ -38,12 +39,18 @@ public class GameManager : MonoBehaviour
         {
             time = Time.timeSinceLevelLoad;
             cooldown = cooldown - Time.deltaTime;
-
-            Spawner();
-            CheckObj();
-            CheckPlanet();
-            GameOver();
-            UpdateUI();
+            if (!debugMode)
+            {
+                Spawner();
+                CheckObj();
+                CheckPlanet();
+                GameOver();
+                UpdateUI();
+            }
+            else
+            {
+                gameOver = false;
+            }
         }
         else if (SceneManager.GetActiveScene().buildIndex == 0)
         {
