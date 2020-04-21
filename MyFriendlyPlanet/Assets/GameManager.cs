@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private bool updated = false;
     public string causeOfGG = "Null";
     public int levelLoad = -1;
-    public bool debugMode = true;
+    public bool debugMode = false;
 
 
     //Init
@@ -42,14 +42,17 @@ public class GameManager : MonoBehaviour
             cooldown = cooldown - Time.deltaTime;
             if (!debugMode)
             {
+                GameOver();
                 Spawner();
                 CheckObj();
                 CheckPlanet();
-                GameOver();
+                
                 UpdateUI();
             }
             else
             {
+                CheckObj();
+                Spawner();
                 gameOver = false;
             }
         }
@@ -128,15 +131,16 @@ public class GameManager : MonoBehaviour
     private void SpawnAsteroid()
     {
 
-        Instantiate(Asteroid, FindPos(), new Quaternion());
+        Instantiate(Asteroid, FindPos() + Player.transform.position, new Quaternion());
     }
 
     private Vector3 FindPos()
     {
         float rdVal = Random.value - 0.5f;
-        float spawnX = Random.Range(35f,45f) * (rdVal/Mathf.Abs(rdVal)) + Player.transform.position.x;
+        float spawnX = Random.Range(35f,45f) * (rdVal/Mathf.Abs(rdVal));
         rdVal = Random.value - 0.5f;
-        float spawnY = Random.Range(55f, 65f) * (rdVal / Mathf.Abs(rdVal)) + Player.transform.position.y;
+        float spawnY = Random.Range(55f, 65f) * (rdVal / Mathf.Abs(rdVal));
+        //Debug.Log(new Vector3(spawnX, spawnY, 0) + Player.transform.position);
         return new Vector3(spawnX,spawnY, 0);
     }
 

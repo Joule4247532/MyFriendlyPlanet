@@ -5,11 +5,11 @@ using UnityEngine;
 public class InitBody : MonoBehaviour
 {
     public GameObject obj;
-    public GameObject player;
 
 
     void Awake()
     {
+        GameObject player = FindObjectOfType<PlayerMouvement>().gameObject;
         Vector2 toPlayer = player.transform.position - obj.transform.position;
         float randomScale = Random.Range(0.2f, 0.5f);
         obj.transform.localScale = new Vector3(randomScale, randomScale, 1);
@@ -18,8 +18,10 @@ public class InitBody : MonoBehaviour
 
     private void Update()
     {
+        GameObject player = FindObjectOfType<PlayerMouvement>().gameObject;
         if (!FindObjectOfType<GameManager>().gameOver)
         {
+            Debug.Log(player.transform.position.magnitude);
             if (Mathf.Abs((player.transform.position - obj.transform.position).magnitude) > 200)
             {
                 FindObjectOfType<GameManager>().objDestroid = true;
@@ -30,6 +32,7 @@ public class InitBody : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject player = FindObjectOfType<PlayerMouvement>().gameObject;
         if (collision.name == "Player")
         {
             if (collision.GetComponent<ToggleType>().activeBH)
